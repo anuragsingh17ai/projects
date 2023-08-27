@@ -1,0 +1,12 @@
+{
+    "workbench.settings.useSplitJSON": false,
+    "remote.otherPortsAttributes": {
+        "onAutoForward": "notify"
+    },
+    "microsoft-sovereign-cloud.customEnvironment": {
+
+    },
+    "emmet.includeLanguages": {
+        "django-html": "html",
+   }
+}

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{%block start%}
+<form class='col-5 card mx-auto mt-5 p-3 shadow-lg' method='post' enctype='multipart/form'>
+  {% csrf_token %}
+    <h2 class='mx-auto'>Add Recipes </h2>
+    <hr>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Recipes</label>
+      <input type="text" name='recipe_name'class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Recipes name">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Description</label>
+      <textarea class="form-control" name='recipe_desc'id="exampleFormControlTextarea1" rows="5"></textarea>
+    </div>
+    <div class="form-upload p-2">
+      <input type="file" name='recipe_img' class='form-control'  id="exampleCheck1">
+    </div>
+    <button type="submit" class="btn btn-primary m-2">Submit</button>
+  </form>
+  <table class='table m-4'>
+    <thead>
+      <th scope='col'>#</th>
+      <th scope='col'>NAME</th>
+      <th scope='col'>RECIPE</th>
+      <th scope='col'>IMAGE</th>
+    </thead>
+    <tbody>
+      
+      {%for item in recipe%}
+      <tr>
+      <td scope='row'>{{forloop.counter}}</td>
+      <td scope='row'>{{item.recipe_name}}</td>
+      <td scope='row'>{{item.recipe_desc}}</td>
+      <td scope='row'><img src="/assets/{{item.recipe_img}}" style='height:100px'></td>
+      </tr>
+      {%endfor%}
+    </tbody>
+  </table>
+{%endblock%}
